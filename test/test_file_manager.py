@@ -1,8 +1,8 @@
 import unittest
 import os
 
-from linked_list.linked_list import LinkedList
-from linked_list.file_manager import FileManager
+from src.linked_list.linked_list import LinkedList
+from src.linked_list.file_manager import FileManager
 
 
 class FileManagerTest(unittest.TestCase):
