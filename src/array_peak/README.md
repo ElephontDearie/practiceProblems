@@ -1,5 +1,5 @@
 # Description:
-Give an integer array of length at least 2, find any peak of the array. An index i is a pick of array if the element at i is larger of equal than it’s neighbouring element(s). For any index i, i-1 and i+1 are the neighbours. First and last element only has one neighbour.
+Give an integer array of length at least 2, find any peak of the array. An index i is a peak of array if the element at i is larger of equal than it’s neighbouring element(s). For any index i, i-1 and i+1 are the neighbours. First and last element only has one neighbour.
 For this problem, we want to do multiple swap operations and find peak after each operation.
 ### Input:
 Array:

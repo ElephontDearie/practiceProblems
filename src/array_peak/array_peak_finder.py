@@ -1,26 +1,31 @@
 from math import floor
 
 def find_peak(input_array: list(), swap_operations: list(list())):
+    peak_index = get_largest_num_index(input_array)
+
     for op in swap_operations:
-        item_to_move = input_array.pop(op[1])
-        new_index = op[0]
-        input_array.insert(new_index, item_to_move)
+        peak_in_swaps = peak_index in op
+        if (peak_in_swaps):
+            if (op[0] == peak_index):
+                peak_index = op[1]
+            elif (op[1] == peak_index):
+                peak_index = op[0]
+
+    return peak_index
+
+
+def get_largest_num_index(array: list(), index_increment: int = 0):
+    if len(array) == 1: 
+        return index_increment
+    if (len(array) == 2):
+        return index_increment if array[0] > array[1] else index_increment + 1
     
-    sorted_array = sorted(input_array)
-    largest = get_largest_num(sorted_array)
-    return input_array.index(largest)
+    midpoint = floor(len(array) / 2) + index_increment
+    largest = array[midpoint]
+    largest_num_index = midpoint
 
-
-def get_largest_num(sorted_array: list()):
-    if len(sorted_array) == 1: 
-        return sorted_array[0]
-
-    midpoint = floor(len(sorted_array) / 2)
-    largest = sorted_array[midpoint]
-
-    if sorted_array[midpoint + 1] and sorted_array[midpoint + 1] > largest:
-        largest = sorted_array[midpoint + 1]
-        return get_largest_num(sorted_array[midpoint + 1:])
-    elif sorted_array[midpoint - 1] and sorted_array[midpoint - 1] > largest:
-        largest = sorted_array[midpoint - 1]
-        return get_largest_num(sorted_array[:midpoint - 1])
+    if array[midpoint + 1] and array[midpoint + 1] > largest:
+        return get_largest_num_index(array[midpoint + 1:], midpoint + 1)
+    elif array[midpoint - 1] and array[midpoint - 1] > largest:
+        return get_largest_num_index(array[:midpoint - 1])
+    return largest_num_index
