@@ -8,7 +8,7 @@ initial_increment = 1
 Size = Enum('Size', ['BIG', 'SMALL'])
 default_increment = 0.000001
 
-def get_square_root(target: int, range: list, last_try: Size = None, increment: float = None):
+def get_square_root(target: int, range: list):
     middle = round(((range[0] + range[1]) / 2), 6)
     middle_calc = middle * middle
 
@@ -18,10 +18,8 @@ def get_square_root(target: int, range: list, last_try: Size = None, increment: 
         return round(middle, 6)
     
     elif (middle_calc < target):
-        print("too little")
         return get_square_root(target, [middle, range[1]])
 
     elif (middle_calc > target):
-        print("too much")
         return get_square_root(target, [range[0], middle])
 
