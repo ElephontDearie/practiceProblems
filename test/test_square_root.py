@@ -27,7 +27,5 @@ class SquareRootFinderTest(unittest.TestCase):
         self.assertAlmostEqual(actual, 1e7, places = 7)
 
     def test_works_for_2(self):
-
         actual = get_square_root(2, [0, 2])
-        print(actual)
         self.assertAlmostEqual(actual, 1.414214, places = 6)
