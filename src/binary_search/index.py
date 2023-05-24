@@ -9,11 +9,7 @@ Size = Enum('Size', ['BIG', 'SMALL'])
 default_increment = 0.000001
 
 def get_square_root(target: int, range: list, last_try: Size = None, increment: float = None):
-    print(range)
-    # if (range[0] == 1.772453): return 0
-
     middle = round(((range[0] + range[1]) / 2), 6)
-    # print(middle)
     middle_calc = middle * middle
 
     if (middle_calc == target):
